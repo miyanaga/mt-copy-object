@@ -1,0 +1,21 @@
+id: CopyObject
+name: CopyObject
+description: Enables coping an object on management screen.
+l10n_class: MT::CopyObject::L10N
+
+applications:
+  cms:
+    callbacks:
+      template_param.edit_entry: $CopyObject::MT::CopyObject::CMS::on_edit_entry
+
+    list_actions:
+      field:
+        copy:
+          label: Copy Fields
+          order: 1000
+          input: 1
+          input_label: How many copy for each?
+          code: $CopyObject::MT::CopyObject::CMS::copy_fields
+          permit_action:
+            permit_action: edit_custom_fields
+            include_all: 1
